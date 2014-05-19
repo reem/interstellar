@@ -3,7 +3,7 @@ var Index = require('./index.js');
 
 var update = function (state) {
   // Emit all new particles -- O(n)
-  Utility.methodMap(state.emitters, 'emit');
+  state.particles = state.particles.concat(_.flatten(Utility.methodMap(state.emitters, 'emit')));
 
   // Submit all particles to all fields -- O(n * m) -- the bottleneck
   var affecters = _.pluck(state.fields, 'affect'); // Cache property lookup.
@@ -19,6 +19,7 @@ var update = function (state) {
   state.particles = _.filter(state.particles, function (particle) {
     return !(particle.pos.x > Index.xBound || particle.pos.y > Index.yBound);
   }); 
+  return state;
 };
 
 exports.update = update;
