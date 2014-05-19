@@ -39,3 +39,12 @@
     - [ ] Show emitters (need)
     - [ ] Show game-stats (want)
 
+## UI Objects
+- [ ] Fields-Menu (need)
+  - [ ] All Types (need)
+  - [ ] Number Left (need)
+- [ ] Score Display (need)
+  - [ ] Particles Left (need)
+  - [ ] Particles Wasted (want)
+- [ ] Level Counter (want)
+- [ ] Game Area (need)
