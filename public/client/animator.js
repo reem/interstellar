@@ -1,28 +1,35 @@
-var Animator = {};
+var canvas = require('./index.js').canvas;
 
-(function (exports) {
-  var animateState = function (state) {
-    _.map(state.particles, renderParticle);
-    _.map(state.emitters, renderEmitter);
-    _.map(state.fields, renderField);
-  };
+var animateState = function (state) {
+  clear(canvas);
+  _.map(state.particles, renderParticle);
+  _.map(state.emitters, renderEmitter);
+  _.map(state.fields, renderField);
+};
 
-  var renderParticle = function (particle) {
+var renderParticle = function (particle) {
+  
+};
 
-  };
+var renderEmitter = function (emitter) {
 
-  var renderEmitter = function (emitter) {
+};
 
-  };
+var renderField = function (field) {
 
-  var renderField = function (field) {
+};
 
-  };
+var renderFieldLine = function () {
+  // Theoretical
+  throw new Error("Not implemented: renderFieldLine");
+};
 
-  var renderFieldLine = function () {
-    // Theoretical
-    throw new Error("Not implemented: renderFieldLine");
-  };
+var renderCircle = function () {
 
-  exports.animator = animateState;
-}(Animator));
+};
+
+var clear = function (canvas) {
+  canvas.context.clearRect(0, 0, canvas.width, canvas.height);
+};
+
+exports.animator = animateState;

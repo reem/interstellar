@@ -1,6 +1,2 @@
-/* globals Utility */
-var Stopper = {};
-
-(function (exports) {
-  exports.stop = Utility.thunk(false);
-}(Stopper));
+var Utility = require('./utility.js');
+exports.stop = Utility.thunk(false);
