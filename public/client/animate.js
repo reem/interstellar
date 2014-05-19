@@ -1,5 +1,5 @@
-/* globals Lazy */
-
+var Lazy = require('./lazy.js').Lazy;
+console.dir(Lazy);
 var Utility = require('./utility.js');
 
 var innerAnimate = function (animation, sequence, wait) {
@@ -29,5 +29,5 @@ var iterate = function (stepper, start) {
 };
 
 exports.animate = function (animator, stepper, stopper, start, wait) {
-  innerAnimate(animator, Lazy.takeWhile(Utility.not(stopper), iterate(stepper, start))); 
+  innerAnimate(animator, iterate(stepper, start).takeWhile(Utility.not(stopper))); 
 };
