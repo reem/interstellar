@@ -1,0 +1,22 @@
+{
+  "name": "ng-news",
+  "version": "0.1.0",
+  "authors": [
+    "Jonathan Reem <jonathan.reem@gmail.com>"
+  ],
+  "description": "a clone of hacker news using angular",
+  "keywords": [
+    "ng"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1",
+  }
+}
