@@ -2,16 +2,6 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    concat: {
-      options: {
-        separator: ';'
-      },
-      dist: {
-        src: 'public/client/**/*.js',
-        dest: 'public/dist/concat.js'
-      }
-    },
-
     nodemon: {
       dev: {
         script: 'server.js'
@@ -38,7 +28,8 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
         ignores: [
           'public/lib/**/*.js',
-          'public/dist/**/*.js'
+          'public/dist/**/*.js',
+          'public/client/lazy.js'
         ]
       }
     },
@@ -73,6 +64,13 @@ module.exports = function(grunt) {
         tasks: ['cssmin']
       }
     },
+
+    browserify: {
+      main: {
+        src: ['public/client/**/*.js'],
+        dest: 'public/dist/concat.js'
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -80,6 +78,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-nodemon');
 
   grunt.registerTask('server-dev', function (target) {
@@ -93,7 +92,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'jshint',
-    'concat',
+    'browserify',
     'uglify',
     'cssmin:minify'
   ]);
