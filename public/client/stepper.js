@@ -1,4 +1,4 @@
-/* globals Utility */
+/* globals Utility, Index */
 var Update = {};
 
 (function (exports) {
@@ -15,6 +15,11 @@ var Update = {};
 
     // Move all particles -- O(n)
     Utility.methodMap(state.particles, 'move');
+
+    // Remove all particles that are out of bounds
+    state.particles = _.filter(state.particles, function (particle) {
+      return !(particle.pos.x > Index.xBound || particle.pos.y > Index.yBound);
+    }); 
   };
 
   exports.update = update;
