@@ -52,7 +52,7 @@ module.exports = function(grunt) {
         ],
         tasks: [
           'jshint',
-          'concat',
+          'browserify',
           'uglify'
         ]
       },
@@ -69,6 +69,10 @@ module.exports = function(grunt) {
       main: {
         src: ['public/client/**/*.js'],
         dest: 'public/dist/concat.js'
+      },
+      dev: {
+        src: ['public/client/**/*.js'],
+        dest: 'public/dist/built.min.js'
       }
     }
   });
@@ -83,7 +87,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('server-dev', function (target) {
     grunt.task.run([ 'nodemon' ]);
-    grunt.task.run([ 'watch' ]);
   });
 
   ////////////////////////////////////////////////////
@@ -92,10 +95,17 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'jshint',
-    'browserify',
+    'browserify:main',
     'uglify',
     'cssmin:minify'
   ]);
 
+  grunt.registerTask('build-dev', [
+    'jshint',
+    'browserify:dev',
+    'cssmin:minify'
+  ]);
+
   grunt.registerTask('deploy', ['build', 'server-dev']);
+  grunt.registerTask('deploy-dev', ['build-dev', 'server-dev']);
 };
