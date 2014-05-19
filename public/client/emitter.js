@@ -1,17 +1,28 @@
-var Emitter = function EmitterConstructor (point, velocity, spread) {
-    // particlePosition, particleVelocity, particleAcceleration) {
+var Emitter = {};
 
-  // this.particle = new Particle(particlePosition, particleVelocity, particleAcceleration);
+(function (exports) {
+  var Vector = Vector.Vector;
+  var Particle = Particle.Particle;
 
-  this.position = point;
-  this.velocity = velocity;
-  this.spread = spread || Math.PI / 32;
-  this.drawColor = "#999";
-};
+  var Emitter = function (pos, ppf, startVel, spread, color) {
+    this.pos = pos || new Vector(0, 0);
+    this.ppf = ppf || 10;
+    this.startVel = startVel === undefined ? 0 : startVel;
+    this.spread = spread || Math.PI / 64;
+    this.drawColor = color || '#999';
+    _.bindAll(this, 'emit');
+  };
 
-Emitter.prototype.emitParticle = function EmitterEmitParticle () {
-  var angle = this.velocity.angle() + this.spread - (Math.random() * this.spread * 2);
+  Emitter.prototype.emit = function() {
+    // Returns all emitted particles.
+    return _.times(this.ppf, function () {
+      return new Particle(
+        this.pos.clone(),
+        Vector.fromAngle(this.startVel * Math.random(), this.spread - (Math.random() * this.spread * 2)) 
+        // default acceleration to Vec(0, 0)
+      );
+    }.bind(this));
+  };
 
-  return new Particle(this.position.clone(), 
-    Vector.fromAngle(this.velocity.magnitude(), angle));
-};
+  exports.Emitter = Emitter;
+}(Emitter));
