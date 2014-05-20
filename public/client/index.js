@@ -9,18 +9,18 @@ var Field = require('./field.js');
 
 exports.xBound = window.innerWidth;
 exports.yBound = window.innerHeight;
-exports.particleLimit = 10000;
+exports.particleLimit = 100000;
 
 var start = new State.State(
   [], 
   [
     // new Field.Field(new Vector.Vector(600, 300), -2000),
-    new Field.Field(new Vector.Vector(600, 400), 50000),
+    new Field.Field(new Vector.Vector(600, 400), 25000),
   ], // particles, fields
   [new Emitter.Emitter(
     new Vector.Vector(500, 200),
     100,
-    20
+    10
   )]);
 
 exports.init = function () {
