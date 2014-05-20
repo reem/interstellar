@@ -39,12 +39,14 @@ SplitTree.prototype.insert = function (point) {
 };
 
 SplitTree.prototype.divide = function () {
-  this.children = this.box.split();
+  this.children = _.map(this.box.split(), function (split) {
+    return new SplitTree(split, this.max);
+  }.bind(this));
   _.each(this.points, function (point) {
     _.each(this.children, function (child) {
       child.insert(point);
-    });
-  });
+    }.bind(this));
+  }.bind(this));
   this.values = [];
 };
 
@@ -56,9 +58,11 @@ SplitTree.prototype.near = function (point) {
   if (this.isLeaf()) {
     return this.values;
   } else {
-    _.find(this.children, function (child) {
+    var found = _.find(this.children, function (child) {
       return boxContains(child.box, point);
-    }).near(point);
+    });
+    if (!found) { return null; }
+    return found.near(point);
   }
 };
 
