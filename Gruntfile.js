@@ -52,8 +52,8 @@ module.exports = function(grunt) {
         ],
         tasks: [
           'jshint',
-          'browserify',
-          'uglify'
+          'browserify:dev',
+          'cssmin:minify'
         ]
       },
       options: {
