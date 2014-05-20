@@ -46,4 +46,8 @@ Vector.prototype.gt = function (other) {
   return this.x > other.x && this.y > other.y;
 };
 
+Vector.prototype.dotproduct = function (other) {
+  return this.x * other.x + this.y * other.y;
+};
+
 exports.Vector = Vector;
