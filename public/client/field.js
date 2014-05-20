@@ -1,7 +1,6 @@
 var Field = function (pos, strength) {
   this.pos = pos;
   this.strength = strength;
-  console.log(this.strength);
   this.color = this.strength < 0 ? "#f00" : "#0f0"; // Set green or red color.
   _.bindAll(this, 'affect');
 };
