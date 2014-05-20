@@ -1,42 +1,41 @@
 # Interstellar
 
 ## Game Objects:
-- [ ] Particles (need)
+- [x] Particles (need)
   - [ ] Antiparticles (wish)
   - [ ] Massive particles (wish)
-- [ ] Fields (need)
-  - [ ] Repulsor (need)
-  - [ ] Attractors (need)
+- [x] Fields (need)
+  - [x] Repulsor (need)
+  - [x] Attractors (need)
     - [ ] Swallowers/Black-Holes (wish)
     - [ ] Channellers (need)
     - [ ] Funnels (wish)
   - [ ] Wormholes (want)
 - [ ] Obstacles
   - [ ] Walls (want/wish)
-- [ ] Creators
-  - [ ] Emitters (need)
+- [x] Creators
+  - [x] Emitters (need)
 
 ## Internal Objects
-- [ ] Vectors (need)
-  - [ ] 2-Vectors (need)
+- [x] Vectors (need)
+  - [x] 2-Vectors (need)
   - [ ] 3-Vectors (wish)
-- [ ] Animate (need)
-  - [ ] Lazy iterate (need)
-  - [ ] requestAnimationFrame loop (need)
-- [ ] Step (need)
-  - [ ] Move particles (need)
-  - [ ] Emit particles (need)
-  - [ ] Update for fields (need)
-    - [ ] Attraction (need)
-    - [ ] Repulsion (need)
+- [x] Animate (need)
+  - [x] requestAnimationFrame loop (need)
+- [x] Step (need)
+  - [x] Move particles (need)
+  - [x] Emit particles (need)
+  - [x] Update for fields (need)
+    - [x] Attraction (need)
+    - [x] Repulsion (need)
     - [ ] Teleportation (want)
   - [ ] Detect collisions (wish)
     - [ ] Antiparticle-particle annihilation (wish)
-  - [ ] Animator
-    - [ ] Show particles (need)
-    - [ ] Show fields (need)
-      - [ ] Show field-lines (wish)
-    - [ ] Show emitters (need)
+  - [x] Animator
+    - [x] Show particles (need)
+    - [x] Show fields (need)
+      - [x] Show field-lines (wish)
+    - [x] Show emitters (need)
     - [ ] Show game-stats (want)
 
 ## UI Objects
