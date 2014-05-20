@@ -9,7 +9,7 @@ var Field = require('./field.js');
 
 exports.xBound = window.innerWidth;
 exports.yBound = window.innerHeight;
-exports.particleLimit = 20000;
+exports.particleLimit = 10000;
 
 var start = new State.State(
   [], 
