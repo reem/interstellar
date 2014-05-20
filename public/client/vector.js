@@ -12,6 +12,11 @@ Vector.prototype.add = function VectorAdd(other) {
   this.y += other.y;
 };
 
+Vector.prototype.fastAdd = function (x, y) {
+  this.x += x;
+  this.y += y;
+};
+
 Vector.prototype.magnitude = function VectorMagnitude() {
   return Math.sqrt(this.x * this.x + this.y * this.y);
 };
