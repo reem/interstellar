@@ -15,7 +15,7 @@ Emitter.prototype.emit = function() {
   return _.times(this.ppf, function () {
     return new Particle(
       this.pos.clone(),
-      Vector.fromAngle(this.startVel * Math.random(), this.spread - (Math.random() * this.spread * 2)) 
+      Vector.fromAngle(this.startVel * (Math.random() + 0.2), this.spread - (Math.random() * this.spread * 2)) 
       // default acceleration to Vec(0, 0)
     );
   }.bind(this));
