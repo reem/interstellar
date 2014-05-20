@@ -38,4 +38,12 @@ Vector.prototype.clone = function VectorClone() {
   return new Vector(this.x, this.y);
 };
 
+Vector.prototype.lt = function (other) {
+  return this.x < other.x && this.y < other.y;
+};
+
+Vector.prototype.gt = function (other) {
+  return this.x > other.x && this.y > other.y;
+};
+
 exports.Vector = Vector;
