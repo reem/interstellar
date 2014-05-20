@@ -7,7 +7,7 @@ exports.invoke = function (func, context, args) {
 };
 
 exports.methodMap = function (os, method) {
-  _.each(_.pluck(os, method), exports.invoke);
+  return _.map(_.pluck(os, method), exports.invoke);
 };
 
 exports.thunk = function (val) {
