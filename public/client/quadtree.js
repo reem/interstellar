@@ -42,14 +42,14 @@ var ParticleBox = function (high, low) {
 
 ParticleBox.prototype.split = function () {
   var middle = ParticlePoint.fromVector(new Vector(
-    this.low.x + 0.5 * (this.high.x - this.low.x),
-    this.low.y + 0.5 * (this.high.y - this.low.y)
+    this.low.particle.pos.x + 0.5 * (this.high.particle.pos.x - this.low.particle.pos.x),
+    this.low.particle.pos.y + 0.5 * (this.high.particle.pos.y - this.low.particle.pos.y)
   ));
   return [
-    new ParticleBox(ParticlePoint.fromVector(this.high), middle),
-    new ParticleBox(ParticlePoint.fromVector(new Vector(this.low.x, this.high.y)), middle),
-    new ParticleBox(middle, ParticlePoint.fromVector(new Vector(this.high.x, this.low.y))),
-    new ParticleBox(middle, ParticlePoint.fromVector(this.low))
+    new ParticleBox(ParticlePoint.fromVector(this.high.particle.pos), middle),
+    new ParticleBox(ParticlePoint.fromVector(new Vector(this.low.particle.pos.x, this.high.particle.pos.y)), middle),
+    new ParticleBox(middle, ParticlePoint.fromVector(new Vector(this.high.particle.pos.x, this.low.particle.pos.y))),
+    new ParticleBox(middle, ParticlePoint.fromVector(this.low.particle.pos))
   ];
 };
 
