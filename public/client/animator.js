@@ -16,13 +16,24 @@ exports.animator = function (canvas, canvasContext) {
     canvasContext.fill();
   };
 
+  var renderLine = function (color, from, to) {
+    canvasContext.beginPath();
+    canvasContext.moveTo(from.x, from.y);
+    canvasContext.lineTo(to.x, to.y);
+    canvasContext.strokeStyle = color;
+    canvasContext.stroke();
+  };
+
   var renderField = function (field) {
     renderCircle(field.color, field.pos, 4);
   };
 
-  var renderFieldLine = function () {
-    // Theoretical
-    throw new Error("Not implemented: renderFieldLine");
+  var renderFieldLines = function (state) {
+    _.each(state.fields, function (field) {
+      for (var i = 0; i < state.particles.length; i++) {
+        renderLine(field.color, field.pos, state.particles[i].pos);
+      }
+    });
   };
 
   var clear = function (canvasContext) {
@@ -34,6 +45,7 @@ exports.animator = function (canvas, canvasContext) {
     _.map(state.particles, renderParticle);
     _.map(state.emitters, renderEmitter);
     _.map(state.fields, renderField);
+    // renderFieldLines(state);
   };
 
   return animateState;
