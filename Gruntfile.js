@@ -2,6 +2,27 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      prod: {
+        options: {
+          separator: ';'
+        },
+        dist: {
+          src: 'public/client/**/*.js',
+          dest: 'public/dist/concat.js'
+        }
+      },
+      dev: {
+        options: {
+          separator: ';'
+        },
+        dist: {
+          src: 'public/client/**/*.js',
+          dest: 'public/dist/build.min.js' // Fake the minify process
+        }
+      }
+    },
+
     nodemon: {
       dev: {
         script: 'server.js'
@@ -94,14 +115,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'jshint',
-    'browserify:main',
+    'concat',
     'uglify',
     'cssmin:minify'
   ]);
 
   grunt.registerTask('build-dev', [
     'jshint',
-    'browserify:dev',
+    'concat:dev',
     'cssmin:minify'
   ]);
 

@@ -80,7 +80,7 @@ var examples = [
   ),
 ]; 
 
-var start = examples[0]; 
+var start = examples[1]; 
 
 exports.init = function () {
   var canvas = document.getElementById('main');

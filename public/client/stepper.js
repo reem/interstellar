@@ -1,7 +1,5 @@
 var Utility = require('./utility.js');
 var Index = require('./index.js');
-var SplitTree = require('./splittree.js').SplitTree;
-var QuadTree = require('./quadtree.js');
 var Vector = require('./vector.js');
 
 var update = function (state) {
