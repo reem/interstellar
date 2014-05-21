@@ -39,11 +39,11 @@ Vector.prototype.clone = function VectorClone() {
 };
 
 Vector.prototype.lt = function (other) {
-  return this.x < other.x && this.y < other.y;
+  return this.x <= other.x && this.y <= other.y;
 };
 
 Vector.prototype.gt = function (other) {
-  return this.x > other.x && this.y > other.y;
+  return this.x >= other.x && this.y >= other.y;
 };
 
 Vector.prototype.dotproduct = function (other) {
