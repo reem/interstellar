@@ -29,7 +29,6 @@ module.exports = function(grunt) {
         ignores: [
           'public/lib/**/*.js',
           'public/dist/**/*.js',
-          'public/client/lazy.js'
         ]
       }
     },
