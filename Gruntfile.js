@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         },
         dist: {
           src: 'public/client/**/*.js',
-          dest: 'public/dist/build.min.js' // Fake the minify process
+          dest: 'public/dist/built.min.js' // Fake the minify process
         }
       }
     },
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
           'public/lib/**/*.js',
         ],
         tasks: [
-          'jshint',
+//          'jshint',
           'browserify:dev',
           'cssmin:minify'
         ]
@@ -122,6 +122,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build-dev', [
     'jshint',
+    'browserify:dev',
     'concat:dev',
     'cssmin:minify'
   ]);
