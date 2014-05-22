@@ -71,7 +71,7 @@ module.exports = function(grunt) {
           'public/lib/**/*.js',
         ],
         tasks: [
-//          'jshint',
+          'jshint',
           'browserify:dev',
           'cssmin:minify'
         ]
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'jshint',
-    'concat',
+    'browserify:main',
     'uglify',
     'cssmin:minify'
   ]);
