@@ -7,6 +7,10 @@ and emitters as its basic building blocks. This came about as a rewrite of my
 particle-fields repo to make it significantly faster (10x) and more extensible
 and understandable.
 
+## Screenshot
+
+![Example](https://raw.githubusercontent.com/reem/interstellar/images/example.png)
+
 ## Tech Stack
 
 This app runs entirely on the client side - the server is simply a shell that
